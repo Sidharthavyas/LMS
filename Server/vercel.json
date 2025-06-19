@@ -1,8 +1,20 @@
-
 {
-  "version": 2,
-  "routes": [
-    { "src": "/clerk", "dest": "/api/server.js" },
-    { "src": "/",      "dest": "/api/server.js" }
-  ]
+      "version":2,
+      "builds":[
+        {
+          "src":"server.js",
+          "use":"@vercel/node",
+          "config":{
+            "includeFiles":[
+              "dist/**"
+            ]
+          }
+        }
+      ],
+      "routes":[
+        {
+          "src":"/(.*)",
+          "dest":"server.js"
+        }
+      ]
 }

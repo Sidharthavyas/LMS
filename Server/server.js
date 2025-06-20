@@ -21,9 +21,6 @@ await connectCloudinary()
 app.use(cors())
 app.use(clerkMiddleware())
 
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
-
 
 // Routes
 app.get('/', (req, res) => {

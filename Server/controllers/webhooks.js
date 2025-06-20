@@ -56,7 +56,7 @@ import Course from "../models/Course.js";
 const stripeInstance = new Stripe(process.env.STRIPE_SECRET_KEY)
 
 
-export const stripeWebhooks = async(req,res)=>{
+export const stripeWebhooks = async(request,response)=>{
      const sig = request.headers['stripe-signature'];
 
   let event;

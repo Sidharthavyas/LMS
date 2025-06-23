@@ -119,7 +119,7 @@ export const updateUserCourseProgress= async(req,res)=>{
 
 // get user Course Progress
 
-export const getuserCourseProgress = async()=>{
+export const getuserCourseProgress = async(req,res)=>{
     try {
         const {userId}=getAuth(req)
         const{courseId}=req.body
@@ -150,7 +150,7 @@ export const addUserRating = async(req,res)=>{
 
         const existingRatingIndex = course.courseRatings.findIndex(r =>r.userId === userId)
         if(existingRatingIndex > -1){
-            courseRatings[existingRatingIndex].rating = rating;
+          course.courseRatings[existingRatingIndex].rating = rating;
 
         }else{
             course.courseRatings.push({userId,rating})

@@ -25,10 +25,16 @@ const CourseSchema = new mongoose.Schema(
         isPublished:{type:Boolean,required:true},
         discount:{type:Number,required:true,min:0,max:100},
         courseContent : [chapterSchema],
-        courseRatings : [
-            { userId:{type:String},
-            rating:{type:Number,min:1 ,max:5}}
-        ],
+        courseRatings: {
+  type: [
+    {
+      userId: { type: String },
+      rating: { type: Number, min: 1, max: 5 }
+    }
+  ],
+  default: []
+},
+
         educator:{type :String,ref:"User",required:true},
         enrolledStudents:[
             {type:String,ref:"User"}

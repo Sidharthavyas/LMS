@@ -14,6 +14,10 @@ export const updateRoleToEducator = async (req, res) => {
       return res.json({ success: false, message: 'User not authenticated' });
     }
 
+    await clerkClient.users.updateUser(userId, {
+      publicMetadata: { ...((await clerkClient.users.getUser(userId)).publicMetadata), role: 'educator' }
+    });
+
     // TEMP: Bypass Clerk to confirm flow
     console.log("Simulating role update...");
     await new Promise(res => setTimeout(res, 500));

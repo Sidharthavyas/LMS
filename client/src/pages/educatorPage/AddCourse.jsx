@@ -168,7 +168,7 @@ const AddCourse = () => {
               <img src={assets.file_upload_icon} alt="" className="p-3 bg-blue-500 rounded" />
               <input type="file" id="thumbnailImage" onChange={e => setImage(e.target.files[0])}
                 accept="image/*" hidden />
-              <img className="max-h-10" src={image ? URL.createObjectURL(image) : ''} alt="" />
+              <img className="max-h-10" src={image ? URL.createObjectURL(image) : null} alt="" />
             </label>
           </div>
         </div>
